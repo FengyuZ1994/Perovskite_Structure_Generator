@@ -1,0 +1,13 @@
+<script type="text/javascript">
+  Jmol.script(JmolApplet0, "axesOrientationRasmol=true; set measurementUnits angstroms; set bondTolerance 1.0;");
+  var command = 'load inline "'+{{num}}+'\nTest\n';
+  {% for a in atoms %}
+  command += '{{a.element}} {{a.x}}  {{a.y}} {{a.z}}\n';
+  {% endfor %}
+  Jmol.script(JmolApplet0,command+'" {2 2 2} UNITCELL [{{a}},{{b}},{{c}},90,90,90];');
+  Jmol.script(JmolApplet0,"polyhedra BONDS {lead}");
+  Jmol.script(JmolApplet0,"UNITCELL [{{a}},{{b}},{{c}},90,90,90]");
+  Jmol.script(JmolApplet0,"polyhedra BONDS {tin}");
+  Jmol.script(JmolApplet0,"unitcell RANGE {666};");
+  Jmol.Button(JmolApplet0,"minimize","Minimize");
+ </script>
